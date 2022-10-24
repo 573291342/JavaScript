@@ -29,23 +29,25 @@
 
 ## 版本穿梭
   ### git reset --hard 版本号
+
+## 分支
+  ### 创建分支 git branch 分支名
+  ### 查看分支 git branch -v
+  ### 切换分支 git checkout 分支名
+  ### 把指定的分支合并到当前分支 git merge 分支名
+## 合并冲突
+  ### 修改文件中的特殊字符，决定保留哪些字符，然后提交，注意提交不要带文件名称
+
+## 创建GitHub地址别名
+  ### git remote -v 查看别名
+  ### git remote add 别名 地址 //创建别名
+  ### git remote rename old new 改仓库地址
+
+## 推送本地库到远程库
+  ### git push 地址别名 分支名
+## 拉取远程库到本地库
+  ### git pull 地址别名 分支名
 ```
-git init - 初始化仓库。
-git add . - 添加文件到暂存区。
-git commit - 将暂存区内容添加到仓库中
-
 git clone [url] git clone 拷贝一个 Git 仓库到本地，让自己能够查看该项目，或者进行修改。
-
-创建分支 git branch 分支名
-查看分支 git branch -v
-切换分支 git checkout 分支名
-把指定的分支合并到当前分支 git merge 分支名
-
-//将暂存区的文件提交到本地库
-git commit -m "描述" 文件
-git remote -v 查看别名
-git remote add 别名 地址 //创建别名
-git remote rename old new 改仓库地址别名
-
 ```
 
