@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: skyblue;
+        }
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        var father  = document.querySelector('.father');
+        father.addEventListener('click',function(){
+            alert('father')
+        })
+        var son  = document.querySelector('.son');
+        son.addEventListener('click',function(e){
+            alert('son')
+        },true)
+        document.addEventListener('click',function(){
+            alert('document')
+        })
+        
+        // var li = document.createElement('li');
+        // var btn = document.querySelector('button');
+        // var ul = document.querySelector('ul');
+        // ul.insertBefore(li,ul.children[0]);
+        // btn.addEventListener('click',function(){
+        //     var li = document.createElement('li');
+        //     li.innerHTML = '我是li'
+        //     ul.appendChild(li)
+        // })
+        // console.log(ul.children[ul.children.length - 1]);
+    </script>
+</body>
+</html>

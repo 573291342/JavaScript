@@ -1,0 +1,29 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.container1,
+.container2{
+  width: 650px;
+  height: 500px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.box1,
+.box2,
+.box3{
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 550px;
+  height: 140px;
+  text-align: center;
+  line-height: 140px;
+}

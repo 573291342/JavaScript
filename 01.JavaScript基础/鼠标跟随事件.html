@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>鼠标跟随事件</title>
+    <style>
+      img {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../html5和css3/image/arr.png" alt="" />
+    <div>
+        123
+    </div>
+    <script>
+      var img = document.querySelector("img");
+      document.addEventListener("mousemove", function (e) {
+        var height = img.height / 2;
+        var width = img.width / 2;
+        img.style.left = e.clientX - height + "px";
+        img.style.top = e.clientY - width + "px";
+      });
+    </script>
+  </body>
+</html>
