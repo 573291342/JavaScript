@@ -1,41 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .div1{
-            background-color: green;
-        }
-        .div2{
-            background-color: blue;
-        }
-        .div3{
-            background-color: yellow;
-        }
-        li{
-            list-style: none;
-        }
-        div{
-            width: 200px;
-            display: block;
-            float: left;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .div1 {
+      background-color: green;
+      width: 500px;
+      height: 300px;
+    }
+
+    .div2 {
+      background-color: blue;
+      width: 500px;
+      height: 300px;
+    }
+
+    .div3 {
+      background-color: yellow;
+      width: 500px;
+      height: 300px;
+    }
+
+    ul {
+      position: absolute;
+      width: 400%;
+      height: 100%;
+    }
+
+    ul li {
+      float: left;
+      list-style: none;
+    }
+
+    .main {
+      position: relative;
+      width: 502px;
+      height: 302px;
+      box-sizing: border-box;
+      border: 1px solid #333;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .arrow_l,
+    .arrow_r {
+      z-index: 999;
+      display: none;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(255, 255, 255, .3);
+      position: absolute;
+      line-height: 20px;
+      cursor: pointer;
+    }
+
+    .arrow_l {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .arrow_r {
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    ol {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      list-style: none;
+    }
+
+    .current {
+      background-color: red;
+    }
+
+    ol li {
+      margin: 8px;
+      float: left;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      width: 10px;
+      height: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div>
-        <ul>
-            <li><div class="div1">1</div></li>
-        </ul>
-        <ul>
-            <li><div class="div2">2</div></li>
-        </ul>
-        <ul>
-            <li><div class="div3">3</div></li>
-        </ul>
+  <div class="main">
+    <div class="arrow_l">&lt;</div>
+    <div class="arrow_r">&gt;</div>
+    <ul>
+      <li>
+        <div class="div1">1</div>
+      </li>
+      <li>
+        <div class="div2">2</div>
+      </li>
+      <li>
+        <div class="div3">3</div>
+      </li>
+    </ul>
+    <div class="arrow">
+      <ol>
+
+      </ol>
     </div>
+  </div>
+  <script>
+
+    function animate(obj, target, callback) {
+      clearInterval(obj.timer);
+      obj.timer = setInterval(function () {
+        // var step = Math.ceil((target-obj.offsetLeft)/10);
+        var step = (target - obj.offsetLeft) / 10;
+        step = step > 0 ? Math.ceil(step) : Math.floor(step)
+        if (obj.offsetLeft == target) {
+          clearInterval(obj.timer);
+          //回调函数写道定时器结束后边
+          // if (callback) {
+          //   callback();
+          // }
+          callback && callback()
+        }
+        // else {
+          obj.style.left = obj.offsetLeft + step + 'px';
+        // }
+      }, 1000 / 24)
+    }
+
+    const arrow_l = document.querySelector('.arrow_l')
+    const arrow_r = document.querySelector('.arrow_r')
+    const main = document.querySelector('.main')
+    const ul = document.querySelector('ul')
+    const ol = document.querySelector('ol')
+    const div1 = document.querySelector('.div1')
+    let picWidth = div1.offsetWidth
+    for (let i = 0; i < ul.children.length; i++) {
+      let li = document.createElement('li')
+      li.setAttribute('index', i)
+      ol.appendChild(li)
+      li.addEventListener('click', function () {
+        for (let i = 0; i < ol.children.length; i++) {
+          ol.children[i].className = ''
+        }
+        this.className = 'current'
+        let index = this.getAttribute('index')
+        num = index - 0
+        circle = index
+        animate(ul, -index * picWidth)
+      })
+    }
+    main.addEventListener('mouseenter', () => {
+      arrow_l.style.display = 'block'
+      arrow_r.style.display = 'block'
+      clearInterval(timer)
+      timer = null
+    })
+    main.addEventListener('mouseleave', () => {
+      arrow_l.style.display = 'none'
+      arrow_r.style.display = 'none'
+      timer = setInterval(function () {
+        arrow_r.click();
+      }, 5000)
+    })
+    ol.children[0].className = 'current'
+    const first = ul.children[0].cloneNode(true)
+    ul.appendChild(first)
+    let num = 0
+    let circle = 0;
+    let flag = false
+    arrow_r.addEventListener('click', function () {
+      if (!flag) {
+        flag = true
+        if (num === ul.children.length - 1) {
+          ul.style.left = 0
+          num = 0;
+        }
+        num++
+        animate(ul, -num * picWidth,()=>{
+          flag = false
+        })
+        circle++
+        if (circle === ol.children.length) circle = 0
+        circleChange()
+      }
+    })
+    arrow_l.addEventListener('click', function () {
+      if (!flag) {
+        flag = true
+        if (num === 0) {
+          num = ul.children.length - 1;
+          ul.style.left = -num * picWidth + 'px'
+        }
+        num--
+        animate(ul, -num * picWidth, () => {
+          flag = false
+        })
+        circle--
+        if (circle < 0) circle = ol.children.length - 1
+        circleChange()
+      }
+    })
+    function circleChange() {
+      for (let i = 0; i < ol.children.length; i++) {
+        ol.children[i].className = ''
+      }
+      ol.children[circle].className = 'current'
+    }
+
+    let timer = setInterval(function () {
+      arrow_r.click();
+    }, 5000)
+  </script>
 </body>
 </html>
