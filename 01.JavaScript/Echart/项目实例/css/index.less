@@ -603,6 +603,53 @@ body {
       flex-direction: column;
       color: #fff;
 
+      ul {
+        flex: 1;
+        line-height: 1;
+        margin-bottom: .075rem;
+
+        &.sup {
+          font-size: .175rem;
+
+          li {
+            color: #4995f4;
+            padding: .15rem;
+          }
+        }
+
+        &.sub {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          font-size: .15rem;
+          background-color: rgba(10, 67, 188, 0.2);
+
+
+          li {
+
+            color: #52ffff;
+            padding: .125rem .1875rem;
+
+            &.active {
+              color: #a3c6f2;
+              background-color: rgba(10, 67, 188, 0.2);
+            }
+          }
+        }
+
+        li {
+          display: flex;
+          justify-content: space-between;
+
+          span {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+
       s {
         display: inline-block;
         transform: scale(0.8);
@@ -622,44 +669,6 @@ body {
         display: flex;
         margin-top: .1875rem;
 
-        ul {
-          flex: 1;
-          line-height: 1;
-          margin-bottom: .075rem;
-
-          &.sup {
-            font-size: .175rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            font-size: .15rem;
-            background-color: rgba(10, 67, 188, 0.2);
-
-            li {
-              color: #4995f4;
-              padding: .15rem;
-              color: #52ffff;
-              padding: .125rem .1875rem;
-
-              &.active {
-                color: #a3c6f2;
-                background-color: rgba(10, 67, 188, 0.2);
-              }
-            }
-          }
-
-          li {
-            display: flex;
-            justify-content: space-between;
-
-            span {
-              display: block;
-              overflow: hidden;
-              white-space: nowrap;
-              text-overflow: ellipsis;
-            }
-          }
-        }
       }
 
       h3 {
@@ -673,6 +682,8 @@ body {
         }
       }
     }
+
+
   }
 }
 

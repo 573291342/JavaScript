@@ -9,6 +9,7 @@
   <script src="./js/jquery.min.js"></script>
   <script src="./js/flexible.js"></script>
   <script src="./js/echarts.min.js"></script>
+  <script src="./js/china.js"></script>
   <title>案例</title>
 </head>
 <body>
@@ -849,33 +850,35 @@
         if (index >= 5) index = 0
         // 选中对应tab触发点击
         $lis.eq(index).mouseenter()
-      }, 1000)
+      }, 1000);
 
       //地图
-      // (function () {
-      //   // 使用配置即可...
-      //   geo: {
-      //     map: 'china',
-      //       zoom: 1.2,
-      //         label: {
-      //       emphasis: {
-      //         show: false
-      //       }
-      //     },
-      //     roam: false,
-      //       itemStyle: {
-      //       normal: {
-      //         areaColor: '#142957',
-      //           borderColor: '#0692a4'
-      //       },
-      //       emphasis: {
-      //         areaColor: '#0b1c2d'
-      //       }
-      //     }
-      //   },
-      //   var myecharts = echarts.init($('.map .geo')[0])
-      //   myecharts.setOption(option)
-      // })();
+      (function () {
+        // 使用配置即可...
+        var option = {
+          geo: {
+            map: 'china',
+            zoom: 1.2,
+            label: {
+              emphasis: {
+                show: false
+              }
+            },
+            roam: false,
+            itemStyle: {
+              normal: {
+                areaColor: '#142957',
+                borderColor: '#0692a4'
+              },
+              emphasis: {
+                areaColor: '#0b1c2d'
+              }
+            }
+          }
+        }
+        var myecharts = echarts.init($('.map .geo')[0])
+        myecharts.setOption(option)
+      })();
     })
   </script>
 </body>

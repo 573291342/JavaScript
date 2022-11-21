@@ -492,6 +492,43 @@ body {
   flex-direction: column;
   color: #fff;
 }
+.top .inner .province ul {
+  flex: 1;
+  line-height: 1;
+  margin-bottom: 0.075rem;
+}
+.top .inner .province ul.sup {
+  font-size: 0.175rem;
+}
+.top .inner .province ul.sup li {
+  color: #4995f4;
+  padding: 0.15rem;
+}
+.top .inner .province ul.sub {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 0.15rem;
+  background-color: rgba(10, 67, 188, 0.2);
+}
+.top .inner .province ul.sub li {
+  color: #52ffff;
+  padding: 0.125rem 0.1875rem;
+}
+.top .inner .province ul.sub li.active {
+  color: #a3c6f2;
+  background-color: rgba(10, 67, 188, 0.2);
+}
+.top .inner .province ul li {
+  display: flex;
+  justify-content: space-between;
+}
+.top .inner .province ul li span {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .top .inner .province s {
   display: inline-block;
   transform: scale(0.8);
@@ -507,39 +544,6 @@ body {
   flex: 1;
   display: flex;
   margin-top: 0.1875rem;
-}
-.top .inner .province .data ul {
-  flex: 1;
-  line-height: 1;
-  margin-bottom: 0.075rem;
-}
-.top .inner .province .data ul.sup {
-  font-size: 0.175rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  font-size: 0.15rem;
-  background-color: rgba(10, 67, 188, 0.2);
-}
-.top .inner .province .data ul.sup li {
-  color: #4995f4;
-  padding: 0.15rem;
-  color: #52ffff;
-  padding: 0.125rem 0.1875rem;
-}
-.top .inner .province .data ul.sup li.active {
-  color: #a3c6f2;
-  background-color: rgba(10, 67, 188, 0.2);
-}
-.top .inner .province .data ul li {
-  display: flex;
-  justify-content: space-between;
-}
-.top .inner .province .data ul li span {
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 .top .inner .province h3 i {
   padding: 0 0.15rem;
